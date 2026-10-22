@@ -121,6 +121,11 @@
   @media (max-width: 860px) {
     .hero-grid { grid-template-columns: 1fr; gap: 2.2rem; }
     .hero-img { order: -1; max-width: 420px; margin: 0 auto; width: 100%; }
+    .hero-text { text-align: center; }
+    .hero-text h1 { text-wrap: balance; }
+    .hero .flag, .hero-badges, .cta-row, .press .row { justify-content: center; }
+    .hero .flag { margin-inline: auto; }
+    .hero .lede, .press .lbl { text-align: center; margin-inline: auto; }
   }
   .hero .flag {
     display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; font-weight: 500;
@@ -539,12 +544,35 @@
   footer .brand { font-size: 1.15rem; }
 
   @media (max-width: 760px) {
+    /* stacking */
     .spot .inner { grid-template-columns: 1fr; gap: 2rem; }
     .ai .inner { grid-template-columns: 1fr; gap: 2rem; }
     .global .inner { grid-template-columns: 1fr; gap: 2rem; }
     .vs .grid { grid-template-columns: 1fr; }
     .calc .panel { grid-template-columns: 1fr; gap: 1.6rem; }
     .row2 { grid-template-columns: 1fr; }
+
+    /* --- consistent centering on mobile --- */
+    h1, h2, h3 { text-wrap: balance; }
+    /* all section headers + their intros */
+    .sec-head { text-align: center; margin-inline: auto; }
+    .sec-head p { margin-inline: auto; }
+    /* two-column copy blocks: center heading + intro, keep checklists readable */
+    .spot .copy, .ai .copy, .global .copy, .discret .copy { text-align: center; }
+    .spot .copy ul, .ai .copy ul, .global .copy ul, .discret .copy ul { text-align: left; max-width: 34ch; margin-inline: auto; }
+    .spot .copy .eyebrow, .ai .copy .eyebrow, .global .copy .eyebrow, .discret .copy .eyebrow { justify-content: center; }
+    /* "already on platform" block */
+    .already-grid { text-align: center; }
+    /* team / Miami header pin */
+    .team .loc { margin-inline: auto; }
+    /* reels / flow / langs card inner text */
+    .spot .reels .big, .ai .box .t, .global .center-node { text-align: center; }
+    /* CTA bands fully centered */
+    .cta-band .inner, .cta-band h3 { text-align: center; }
+    /* small print centered */
+    .market2 .src, .proj .disc, .spot .reels .note, .ai .flow .note, .global .langs .note, .testi .grid + p { text-align: center; margin-inline: auto; }
+    /* badges / trust rows centered */
+    .trust-row { justify-content: center; }
   }
 
   /* ---- phone fine-tuning ---- */
@@ -564,11 +592,12 @@
     .sec-head h2, .spot .copy h2, .ai .copy h2, .global .copy h2, .discret .copy h2 { font-size: clamp(1.5rem, 7vw, 2rem); }
     .cta-row { gap: 0.7rem; }
     .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
-    .stack-total, .cta-band .inner, .passive .banner, .guar .box, footer .f-inner { flex-direction: column; align-items: flex-start; text-align: left; }
+    .stack-total, .cta-band .inner, .passive .banner, .guar .box { flex-direction: column; align-items: center; text-align: center; }
+    footer .f-inner { flex-direction: column; align-items: center; text-align: center; }
     .cta-band .inner { align-items: stretch; }
     .cta-band a, .stack-total .btn-white { width: 100%; justify-content: center; }
     .guar .box { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 1.1rem; }
-    .spot .reels .big, .ai h2, .calc .result .rnum { word-break: break-word; }
+    .proj .mo .v, .calc .result .rnum { overflow-wrap: anywhere; }
     .lang-foot { flex-direction: column; gap: 0.7rem; }
     /* center stacked section images */
     .already-grid img, .spot .reels img, .ai .flow img, .global .langs img, .team img, .proj img { margin-inline: auto; }
