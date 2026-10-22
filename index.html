@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>
   :root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; overflow-x: hidden; }
   body { margin: 0; }
   img { max-width: 100%; }
   [hidden] { display: none !important; }
@@ -60,13 +60,16 @@
     }
   }
 
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; min-width: 0; }
+  html { overflow-x: hidden; }
   body {
     background: var(--bg);
     color: var(--fg);
     font-family: var(--font-body);
     line-height: 1.6;
     margin: 0;
+    width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
@@ -87,7 +90,7 @@
   }
 
   /* ---- top bar ---- */
-  .topbar { display: flex; align-items: center; justify-content: space-between; padding-block: 1.25rem; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem 1rem; padding-block: 1.25rem; }
   .brand { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; }
   .brand span { color: var(--accent); }
   .topbar .ghost {
@@ -107,10 +110,11 @@
   .lang-btn:hover { color: var(--fg); }
   .lang-btn.on { background: var(--accent); color: #fff; }
   @media (max-width: 560px) {
-    .lang-btn { padding: 0.4rem 0.45rem; font-size: 0.72rem; }
-    .lang-btn .fl { font-size: 0.85rem; }
-    .topbar-right { gap: 0.5rem; }
-    .topbar .ghost { padding: 0.5rem 0.8rem; font-size: 0.78rem; }
+    .topbar { justify-content: center; }
+    .topbar-right { gap: 0.5rem; flex-wrap: wrap; justify-content: center; width: 100%; }
+    .lang-btn { padding: 0.4rem 0.5rem; font-size: 0.74rem; }
+    .lang-btn .fl { font-size: 0.88rem; }
+    .topbar .ghost { padding: 0.5rem 0.9rem; font-size: 0.8rem; }
   }
 
   /* ---- hero ---- */
